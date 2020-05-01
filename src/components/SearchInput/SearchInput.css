@@ -1,0 +1,14 @@
+.input-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.id-input {
+  width: 60%;
+  margin-right: 30px;
+}
+
+.search-btn {
+  width: 20%;
+}

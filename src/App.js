@@ -3,6 +3,8 @@ import "./App.css";
 
 import axios from "axios";
 
+import NavBar from "./components/NavBar/NavBar";
+import SearchInput from "./components/SearchInput/SearchInput";
 import ResultCard from "./components/ResultCard/ResultCard";
 
 const App = () => {
@@ -30,26 +32,14 @@ const App = () => {
 
   return (
     <>
-      <nav className="navbar navbar-light bg-dark">
-        <a className="navbar-brand text-white" href="#">
-          ระบบเช็ครายชื่อผู้เดินทางกลับจาก จ.ภูเก็ต
-        </a>
-      </nav>
+      <NavBar />
       <div className="mt-5 main-container">
-        <div className="input-container">
-          <input
-            type="number"
-            value={id}
-            className="form-control id-input"
-            id="id-input"
-            placeholder="กรอกหมายเลขบัตรประชาชน"
-            onChange={(e) => setId(e.target.value)}
-            onKeyDown={(e) => onEnter(e)}
-          />
-          <button onClick={getInfo} className="btn btn-primary search-btn">
-            ค้นหา
-          </button>
-        </div>
+        <SearchInput
+          id={id}
+          setId={setId}
+          onEnter={onEnter}
+          getInfo={getInfo}
+        />
 
         <ResultCard data={data} />
       </div>
