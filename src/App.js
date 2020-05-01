@@ -16,7 +16,7 @@ const App = () => {
   const getInfo = async () => {
     if (id.length !== 13) alert("กรุณากรอกหมายเลขบัตรประชาชน 13 หลัก");
 
-    const api = `http://161.200.80.206:3333/api/covid/check/${id}`;
+    const api = `https://161.200.80.206:3333/api/covid/check/${id}`;
 
     const response = await axios.get(api);
     setData(response.data);
