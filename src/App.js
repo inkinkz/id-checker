@@ -7,7 +7,6 @@ import ResultCard from "./components/ResultCard/ResultCard";
 
 const App = () => {
   const [id, setId] = useState("");
-
   const [data, setData] = useState({});
 
   const onEnter = (event) => {
@@ -19,6 +18,7 @@ const App = () => {
     const api = `http://161.200.80.206:3333/api/covid/check/${id}`;
 
     const response = await axios.get(api);
+    console.log(response.data);
     setData(response.data);
   };
 
