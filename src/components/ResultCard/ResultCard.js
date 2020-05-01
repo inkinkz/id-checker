@@ -2,13 +2,7 @@ import React from "react";
 import "./ResultCard.css";
 
 const ResultCard = ({ data }) => {
-  const textColor =
-    data.status === "มีความเสี่ยงติดเชื้อ" ? "text-danger" : "text-success";
-
-  const text =
-    data.status === "มีความเสี่ยงติดเชื้อ"
-      ? "มีความเสี่ยงติดเชื้อ"
-      : "ไม่พบความเสี่ยงติดเชื้อจากจังหวัดภูเก็ต";
+  const textColor = data.info ? "text-danger" : "text-success";
 
   const invalid = (
     <div className="not-found-text text-danger">
@@ -19,7 +13,7 @@ const ResultCard = ({ data }) => {
   const status = (
     <div className="status">
       <h2>
-        สถานะ: <span className={textColor}>{text}</span>
+        สถานะ: <span className={textColor}>{data.status}</span>
       </h2>
     </div>
   );
@@ -74,11 +68,13 @@ const ResultCard = ({ data }) => {
 
   return (
     <div className="result-card shadow rounded">
-      {data.status === "หมายเลขบัตรประชาชนไม่ถูกต้อง" ? invalid : ""}
-      {data.status ? status : ""}
-      {data.status ? personInfo : ""}
+      {data.invalid && invalid}
 
-      {!data.status ? noData : ""}
+      {data.status && status}
+
+      {data.status && personInfo}
+
+      {!data.status && !data.invalid ? noData : ""}
     </div>
   );
 };

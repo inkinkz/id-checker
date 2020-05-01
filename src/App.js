@@ -18,8 +18,14 @@ const App = () => {
 
     const api = `https://cusense.net:3333/api/covid/check/${id}`;
 
-    const response = await axios.get(api);
-    setData(response.data);
+    axios
+      .get(api)
+      .then((res) => {
+        setData(res.data);
+      })
+      .catch((err) => {
+        if (err.response.status === 400) setData({ invalid: true });
+      });
   };
 
   return (
