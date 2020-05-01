@@ -68,7 +68,7 @@ const ResultCard = ({ data, inputError }) => {
 
   const noData = (
     <div className="text-body">
-      <h2>กรอกหมายเลขบัตรประชาชนเพื่อนเริ่มค้นหา</h2>
+      <h2>กรอกหมายเลขบัตรประชาชนเพื่อเริ่มค้นหา</h2>
     </div>
   );
 
