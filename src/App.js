@@ -23,7 +23,7 @@ const App = () => {
     if (id.length !== 13) {
       setError("digit");
     } else {
-      const api = `https://cusense.net:3333/api/covid/check/${id}`;
+      const api = `https://cusense.net:8082/hkt/api/covid/check/${id}`;
       axios
         .get(api)
         .then((res) => {
