@@ -10,26 +10,50 @@ import ResultCard from "./components/ResultCard/ResultCard";
 const App = () => {
   const [id, setId] = useState("");
   const [data, setData] = useState({});
+  const [inputError, setInputError] = useState({
+    digit: false,
+    invalid: false,
+  });
 
   const onEnter = (event) => {
     if (event.key === "Enter" || event.keyCode === 13) getInfo();
   };
 
   const getInfo = async () => {
-    if (id.length !== 13) alert("กรุณากรอกหมายเลขบัตรประชาชน 13 หลัก");
-
-    const api = `https://cusense.net:3333/api/covid/check/${id}`;
-
-    axios
-      .get(api)
-      .then((res) => {
-        setData(res.data);
-      })
-      .catch((err) => {
-        if (err.response.status === 400) setData({ invalid: true });
-      });
+    if (id.length !== 13) {
+      setError("digit");
+    } else {
+      const api = `https://cusense.net:3333/api/covid/check/${id}`;
+      axios
+        .get(api)
+        .then((res) => {
+          setInputError({
+            digit: false,
+            invalid: false,
+          });
+          setData(res.data);
+        })
+        .catch((err) => {
+          if (err.response.status === 400) {
+            setError("invalid");
+          }
+        });
+    }
   };
 
+  const setError = (type) => {
+    setData({});
+    switch (type) {
+      case "digit":
+        setInputError({ digit: true, invalid: false });
+        break;
+      case "invalid":
+        setInputError({ digit: false, invalid: true });
+        break;
+      default:
+        break;
+    }
+  };
   return (
     <>
       <NavBar />
@@ -41,7 +65,7 @@ const App = () => {
           getInfo={getInfo}
         />
 
-        <ResultCard data={data} />
+        <ResultCard data={data} inputError={inputError} />
       </div>
     </>
   );

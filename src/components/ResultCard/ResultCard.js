@@ -1,12 +1,18 @@
 import React from "react";
 import "./ResultCard.css";
 
-const ResultCard = ({ data }) => {
+const ResultCard = ({ data, inputError }) => {
   const textColor = data.info ? "text-danger" : "text-success";
 
   const invalid = (
     <div className="not-found-text text-danger">
       <h1>หมายเลขบัตรประชาชนไม่ถูกต้อง</h1>
+    </div>
+  );
+
+  const digitError = (
+    <div className="not-found-text text-danger">
+      <h1>กรุณากรอกหมายเลขบัตรประชาชน 13 หลัก</h1>
     </div>
   );
 
@@ -68,13 +74,14 @@ const ResultCard = ({ data }) => {
 
   return (
     <div className="result-card shadow rounded">
-      {data.invalid && invalid}
+      {inputError.invalid && invalid}
+      {inputError.digit && digitError}
 
       {data.status && status}
 
       {data.status && personInfo}
 
-      {!data.status && !data.invalid ? noData : ""}
+      {!data.status && !inputError.invalid && !inputError.digit ? noData : ""}
     </div>
   );
 };
