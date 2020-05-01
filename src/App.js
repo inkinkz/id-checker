@@ -19,7 +19,6 @@ const App = () => {
     const api = `http://161.200.80.206:3333/api/covid/check/${id}`;
 
     const response = await axios.get(api);
-    console.log(response.data);
     setData(response.data);
   };
 
@@ -39,12 +38,9 @@ const App = () => {
             id="id-input"
             placeholder="กรอกหมายเลขบัตรประชาชน"
             onChange={(e) => setId(e.target.value)}
-          />
-          <button
-            onClick={getInfo}
             onKeyDown={(e) => onEnter(e)}
-            className="btn btn-primary search-btn"
-          >
+          />
+          <button onClick={getInfo} className="btn btn-primary search-btn">
             ค้นหา
           </button>
         </div>
