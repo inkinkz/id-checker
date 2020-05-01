@@ -18,7 +18,6 @@ const App = () => {
     const api = `http://161.200.80.206:3333/api/covid/check/${id}`;
 
     const response = await axios.get(api);
-    console.log(response.data);
     setData(response.data);
   };
 

@@ -5,6 +5,11 @@ const ResultCard = ({ data }) => {
   const textColor =
     data.status === "มีความเสี่ยงติดเชื้อ" ? "text-danger" : "text-success";
 
+  const text =
+    data.status === "มีความเสี่ยงติดเชื้อ"
+      ? "มีความเสี่ยงติดเชื้อ"
+      : "ไม่พบความเสี่ยงติดเชื้อจากจังหวัดภูเก็ต";
+
   const invalid = (
     <div className="not-found-text text-danger">
       <h1>หมายเลขบัตรประชาชนไม่ถูกต้อง</h1>
@@ -14,7 +19,7 @@ const ResultCard = ({ data }) => {
   const status = (
     <div className="status">
       <h2>
-        สถานะ: <span className={textColor}>{data.status}</span>
+        สถานะ: <span className={textColor}>{text}</span>
       </h2>
     </div>
   );

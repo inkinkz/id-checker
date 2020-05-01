@@ -24,3 +24,15 @@
 .person-info {
   margin-top: 2.5rem;
 }
+
+@media (max-width: 600px) {
+  .result-card {
+    padding: 1rem;
+  }
+  .result-card p {
+    font-size: 14px;
+  }
+  .info {
+    padding-left: 15px;
+  }
+}
