@@ -1,0 +1,26 @@
+.result-card {
+  margin: 3rem auto;
+  width: 1200px;
+  height: 70vh;
+  padding: 3rem 6rem;
+  overflow-y: scroll;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.result-card p {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.info {
+  font-weight: normal;
+  padding-left: 30px;
+}
+
+.person-info {
+  margin-top: 2.5rem;
+}
