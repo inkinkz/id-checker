@@ -3,8 +3,6 @@
   max-width: 1200px;
   height: max-content;
   padding: 3rem 6rem;
-  overflow-y: scroll;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,9 +26,18 @@
 @media (max-width: 600px) {
   .result-card {
     padding: 1rem;
+    max-width: 90vw;
   }
   .result-card p {
     font-size: 14px;
+  }
+
+  .result-card h1 {
+    font-size: 1rem;
+  }
+
+  .result-card h2 {
+    font-size: 1rem;
   }
   .info {
     padding-left: 15px;
