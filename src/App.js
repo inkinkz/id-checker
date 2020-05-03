@@ -20,9 +20,7 @@ const App = () => {
   };
 
   const getInfo = async () => {
-    if (id.length !== 13) {
-      setError("digit");
-    } else {
+    if (id.length === 13 || id.length === 7) {
       const api = `https://cusense.net:8082/hkt/api/covid/check/${id}`;
       axios
         .get(api)
@@ -38,6 +36,8 @@ const App = () => {
             setError("invalid");
           }
         });
+    } else {
+      setError("digit");
     }
   };
 
