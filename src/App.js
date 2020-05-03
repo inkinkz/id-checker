@@ -20,7 +20,7 @@ const App = () => {
   };
 
   const getInfo = async () => {
-    if (id.length !== 13 || id.length !== 7) {
+    if (id.length !== 13) {
       setError("digit");
     } else {
       const api = `https://cusense.net:8082/hkt/api/covid/check/${id}`;
