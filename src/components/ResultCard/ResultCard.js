@@ -65,12 +65,12 @@ const ResultCard = ({ data, inputError }) => {
 
         <p>
           ยานพาหนะ:
-          <span className="info">{data.info.vehicle}</span>
+          <span className="info">{data.info.vehicle || " - "}</span>
         </p>
 
         <p>
           ทะเบียนรถ:
-          <span className="info">{data.info.veh_id}</span>
+          <span className="info">{data.info.veh_id || " - "}</span>
         </p>
       </div>
     );
