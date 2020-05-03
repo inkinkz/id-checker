@@ -62,6 +62,16 @@ const ResultCard = ({ data, inputError }) => {
             {data.info.home_province}
           </span>
         </p>
+
+        <p>
+          ยานพาหนะ:
+          <span className="info">{data.info.vehicle}</span>
+        </p>
+
+        <p>
+          ทะเบียนรถ:
+          <span className="info">{data.info.veh_id}</span>
+        </p>
       </div>
     );
   }
