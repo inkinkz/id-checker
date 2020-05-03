@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "ID Checker",
+  "name": "ระบบเช็ครายชื่อผู้เดินทางกลับจาก จ.ภูเก็ต",
   "icons": [
     {
       "src": "favicon.ico",
